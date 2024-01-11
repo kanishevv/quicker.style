@@ -411,6 +411,11 @@
    * Forms
    */
 
+  /* Buttons */
+  --q-button-font-size-small: var(--q-font-size-x-small);
+  --q-button-font-size-medium: var(--q-font-size-small);
+  --q-button-font-size-large: var(--q-font-size-medium);
+
   /* Inputs */
   --q-input-height-small: 1.875rem; /* 30px */
   --q-input-height-medium: 2.5rem; /* 40px */
