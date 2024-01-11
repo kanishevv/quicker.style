@@ -8,6 +8,7 @@ export interface QButtonProps {
   pill: boolean
   circle: boolean
   disabled: boolean
+  caret: boolean
 }
 
 const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
