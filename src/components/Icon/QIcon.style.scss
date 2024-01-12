@@ -1,0 +1,17 @@
+.q-icon {
+  --font-size: inherit;
+  --color: inherit;
+
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  box-sizing: content-box;
+  font-size: var(--font-size);
+  color: var(--color);
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
