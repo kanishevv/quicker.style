@@ -1,6 +1,6 @@
 {
   "name": "quicker.style",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "type": "module",
   "main": "dist/main.js",
@@ -42,6 +42,7 @@
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
     "sass": "^1.69.7",
+    "seemly": "^0.3.8",
     "typescript": "~5.3.0",
     "vite": "^5.0.10",
     "vite-plugin-dts": "^3.7.0",
@@ -52,5 +53,8 @@
   },
   "sideEffects": [
     "**/*.css"
-  ]
+  ],
+  "dependencies": {
+    "@vueuse/core": "^10.7.2"
+  }
 }
