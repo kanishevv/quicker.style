@@ -1,0 +1,163 @@
+.q-flex {
+  display: flex;
+}
+
+.q-flex--wrap {
+  flex-wrap: wrap;
+}
+
+.q-flex--vertical {
+  flex-direction: column;
+}
+
+.q-flex--justify {
+  &-start {
+    justify-content: start;
+  }
+
+  &-end {
+    justify-content: end;
+  }
+
+  &-flex-start {
+    justify-content: flex-start;
+  }
+
+  &-flex-end {
+    justify-content: flex-end;
+  }
+
+  &-left {
+    justify-content: left;
+  }
+
+  &-right {
+    justify-content: right;
+  }
+
+  &-baseline {
+    justify-content: baseline;
+  }
+
+  &-first-baseline {
+    justify-content: first baseline;
+  }
+
+  &-last-baseline {
+    justify-content: last baseline;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-space-around {
+    justify-content: space-around;
+  }
+
+  &-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &-space-stretch {
+    justify-content: stretch;
+  }
+
+  &-safe-center {
+    justify-content: safe center;
+  }
+
+  &-unsafe-center {
+    justify-content: unsafe center;
+  }
+
+  &-inherit {
+    justify-content: inherit;
+  }
+
+  &-initial {
+    justify-content: initial;
+  }
+
+  &-unset {
+    justify-content: unset;
+  }
+}
+
+.q-flex--align {
+  &-normal {
+    align-items: normal;
+  }
+
+  &-stretch {
+    align-items: stretch;
+  }
+
+  &-center {
+    align-items: center;
+  }
+
+  &-start {
+    align-items: start;
+  }
+
+  &-end {
+    align-items: end;
+  }
+
+  &-flex-start {
+    align-items: flex-start;
+  }
+
+  &-flex-end {
+    align-items: flex-end;
+  }
+
+  &-self-start {
+    align-items: self-start;
+  }
+
+  &-self-end {
+    align-items: self-end;
+  }
+
+  &-baseline {
+    align-items: baseline;
+  }
+
+  &-first-baseline {
+    align-items: first baseline;
+  }
+
+  &-last-baseline {
+    align-items: last baseline;
+  }
+
+  &-safe-center {
+    align-items: safe center;
+  }
+
+  &-unsafe-center {
+    align-items: unsafe center;
+  }
+
+  &-inherit {
+    align-items: inherit;
+  }
+
+  &-initial {
+    align-items: initial;
+  }
+
+  &-revert {
+    align-items: revert;
+  }
+
+  &-revert-layer {
+    align-items: revert-layer;
+  }
+
+  &-unset {
+    align-items: unset;
+  }
+}
