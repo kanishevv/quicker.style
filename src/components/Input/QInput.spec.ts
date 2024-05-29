@@ -102,4 +102,3 @@ describe('QInput', () => {
     expect(wrapper.props('modelValue')).toBe('test')
   })
 })
-

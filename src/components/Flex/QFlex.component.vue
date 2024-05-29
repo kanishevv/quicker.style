@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Partial<QFlexProps>>(), {
 const classes = computed(() => {
   const { wrap, vertical, justify, align } = props
 
-  let classes = [
+  let classes: [{} | string] = [
     {
       'q-flex--wrap': wrap,
       'q-flex--vertical': vertical
