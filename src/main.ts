@@ -5,5 +5,6 @@ import { QGrid, QGridItem } from './components/Grid/QGrid'
 import QFlex from './components/Flex/QFlex'
 import QCard from './components/Card/QCard'
 import QDetails from './components/Details/QDetails'
+import QSkeleton from './components/Skeleton/QSkeleton'
 
-export { QInput, QButton, QIcon, QGrid, QGridItem, QFlex, QCard, QDetails }
+export { QInput, QButton, QIcon, QGrid, QGridItem, QFlex, QCard, QDetails, QSkeleton }
