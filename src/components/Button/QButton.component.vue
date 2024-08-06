@@ -9,8 +9,8 @@ export interface QButtonProps {
   circle: boolean
   disabled: boolean
   caret: boolean
-  href?: string
-  target?: 'blank' | 'self' | 'parent' | 'top'
+  href: string
+  target: 'blank' | 'self' | 'parent' | 'top'
 }
 
 const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
