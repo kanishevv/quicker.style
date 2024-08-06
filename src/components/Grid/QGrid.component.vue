@@ -27,8 +27,8 @@ const styles = computed(() => {
   return [
     {
       gridTemplateColumns: `repeat(${cols}, minmax(0px, 1fr))`,
-      rowGap: typeof xGap === 'number' ? `${xGap}px` : '',
-      columnGap: typeof yGap === 'number' ? `${yGap}px` : ''
+      rowGap: typeof yGap === 'number' ? `${yGap}px` : '',
+      columnGap: typeof xGap === 'number' ? `${xGap}px` : ''
     }
   ]
 })
