@@ -9,6 +9,8 @@ export interface QButtonProps {
   circle: boolean
   disabled: boolean
   caret: boolean
+  href?: string
+  target?: 'blank' | 'self' | 'parent' | 'top'
 }
 
 const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
@@ -19,8 +21,12 @@ const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
 
 const slots = defineSlots()
 
+const component = computed(() => props.href ? 'a' : 'button')
+
+const targ = computed(() => props.href !== null && props.target ? `_${props.target}` : null)
+
 const classes = computed(() => {
-  const { outline, variant, size, caret, pill, circle, disabled } = props
+  const { outline, variant, size, caret, pill, circle, disabled, href } = props
 
   return [
     {
@@ -41,14 +47,15 @@ const classes = computed(() => {
       'q-button--disabled': disabled,
       'q-button--label': slots.default,
       'q-button--prefix': slots.prefix,
-      'q-button--suffix': slots.suffix || caret
+      'q-button--suffix': slots.suffix || caret,
+      'q-button--link': href
     }
   ]
 })
 </script>
 
 <template>
-  <button class="q-button" :class="classes">
+  <component class="q-button" :is='component' :class="classes" :href="href" :target="targ">
     <span class="q-button__prefix" v-if="slots.prefix">
       <slot name="prefix"></slot>
     </span>
@@ -58,7 +65,7 @@ const classes = computed(() => {
     <span class="q-button__suffix" v-if="slots.suffix">
       <slot name="suffix"></slot>
     </span>
-  </button>
+  </component>
 </template>
 
 <style src="./QButton.style.scss" lang="scss"></style>

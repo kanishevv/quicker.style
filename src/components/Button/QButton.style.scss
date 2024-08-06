@@ -32,6 +32,10 @@
     outline-offset: var(--q-focus-ring-offset);
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &--disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -483,4 +487,9 @@
   .q-button__label {
     padding-inline-end: var(--q-spacing-small);
   }
+}
+
+.q-button--link .q-button__label {
+  display: flex;
+  align-items: center;
 }
