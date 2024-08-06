@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-export type Props = {
+export type QSkeletonProps = {
   effect?: string
 }
 
-const props = defineProps<Props>()
+const props = defineProps<QSkeletonProps>()
 
 const classes = computed(() => {
   const { effect } = props
