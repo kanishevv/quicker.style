@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
-import dts from "vite-plugin-dts"
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,19 +17,16 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, './src/main.ts'),
-      name: 'QuickerStyle',
-      fileName: 'quicker.style',
-      // formats: ['es']
+      entry: resolve(__dirname, 'src/main.ts'),
+      name: 'Quicker.style',
+      fileName: (format) => `quicker.style.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
-      input: {
-        main: resolve(__dirname, 'src/main.ts')
-      },
       output: {
-        assetFileNames: 'assets/[name][extname]',
-        entryFileNames: '[name].js'
+        globals: {
+          vue: 'Vue'
+        }
       }
     }
   }
