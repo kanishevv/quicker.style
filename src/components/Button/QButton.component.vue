@@ -21,9 +21,9 @@ const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
 
 const slots = defineSlots()
 
-const component = computed(() => props.href ? 'a' : 'button')
+const component = computed(() => (props.href ? 'a' : 'button'))
 
-const targ = computed(() => props.href !== null && props.target ? `_${props.target}` : null)
+const targ = computed(() => (props.href !== null && props.target ? `_${props.target}` : null))
 
 const classes = computed(() => {
   const { outline, variant, size, caret, pill, circle, disabled, href } = props
@@ -55,7 +55,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <component class="q-button" :is='component' :class="classes" :href="href" :target="targ">
+  <component class="q-button" :is="component" :class="classes" :href="href" :target="targ">
     <span class="q-button__prefix" v-if="slots.prefix">
       <slot name="prefix"></slot>
     </span>
