@@ -1,6 +1,6 @@
 {
   "name": "quicker.style",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "private": false,
   "type": "module",
   "main": "./dist/quicker.style.umd.cjs",
@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check build-only types",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
@@ -26,7 +26,8 @@
     "build:production": "npm run build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "types": "npx tsc --emitDeclarationOnly"
   },
   "peerDependencies": {
     "vue": "^3.4.5"
