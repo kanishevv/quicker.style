@@ -8,6 +8,7 @@ import QDetails from './components/Details/QDetails'
 import QSkeleton from './components/Skeleton/QSkeleton'
 import QAvatar from './components/Avatar/QAvatar'
 import QDrawer from './components/Drawer/QDrawer'
+import { QMenu, QMenuItem, QMenuLabel } from './components/Menu/QMenu'
 
 export {
   QInput,
@@ -20,5 +21,8 @@ export {
   QDetails,
   QSkeleton,
   QAvatar,
-  QDrawer
+  QDrawer,
+  QMenu,
+  QMenuItem,
+  QMenuLabel
 }
