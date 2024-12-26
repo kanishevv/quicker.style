@@ -1,8 +1,9 @@
 .q-drawer {
   --size: 25rem;
-  --header-spacing: var(--q-spacing-large);
-  --body-spacing: var(--q-spacing-large);
-  --footer-spacing: var(--q-spacing-large);
+  --header-spacing: var(--q-spacing-medium);
+  --body-spacing: var(--q-spacing-medium);
+  --footer-spacing: var(--q-spacing-medium);
+  --body-scroll: auto;
 
   top: 0;
   inset-inline-start: 0;
@@ -85,7 +86,7 @@
 .q-drawer__title {
   flex: 1 1 auto;
   font: inherit;
-  font-size: var(--q-font-size-large);
+  font-size: var(--q-font-size-medium);
   line-height: var(--q-line-height-dense);
   padding: var(--header-spacing);
   margin: 0;
@@ -112,7 +113,7 @@
   flex: 1 1 auto;
   display: block;
   padding: var(--body-spacing);
-  overflow: auto;
+  overflow: var(--body-scroll);
   -webkit-overflow-scrolling: touch;
 }
 
