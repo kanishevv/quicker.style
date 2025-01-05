@@ -1,0 +1,115 @@
+.q-dialog {
+  --width: 31rem;
+  --header-spacing: var(--q-spacing-medium);
+  --body-spacing: var(--q-spacing-medium);
+  --footer-spacing: var(--q-spacing-medium);
+  --box-shadow: var(--q-shadow-medium);
+  --border-radius: var(--q-border-radius-medium);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--q-z-index-dialog);
+}
+
+.q-dialog__panel {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: var(--width);
+  max-width: calc(100% - var(--q-spacing-2x-large));
+  max-height: calc(100% - var(--q-spacing-2x-large));
+  background-color: var(--q-panel-background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.q-dialog__panel:focus {
+  outline: none;
+}
+
+/* Ensure there's enough vertical padding for phones that don't update vh when chrome appears (e.g. iPhone) */
+@media screen and (max-width: 420px) {
+  .q-dialog__panel {
+    max-height: 80vh;
+  }
+}
+
+.q-dialog--open .q-dialog__panel {
+  display: flex;
+  opacity: 1;
+}
+
+.q-dialog__header {
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.q-dialog__title {
+  flex: 1 1 auto;
+  font: inherit;
+  font-size: var(--q-font-size-medium);
+  line-height: var(--q-line-height-dense);
+  padding: var(--header-spacing);
+  margin: 0;
+}
+
+.q-dialog__header-actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: var(--q-spacing-2x-small);
+  padding: 0 var(--header-spacing);
+}
+
+.q-dialog__header-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: var(--q-font-size-medium);
+}
+
+.q-dialog__body {
+  flex: 1 1 auto;
+  display: block;
+  padding: var(--body-spacing);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.q-dialog__footer {
+  flex: 0 0 auto;
+  text-align: right;
+  padding: var(--footer-spacing);
+}
+
+.q-dialog__footer ::slotted(.q-button:not(:first-of-type)) {
+  margin-inline-start: var(--q-spacing-x-small);
+}
+
+.q-dialog:not(.q-dialog--has-footer) .q-dialog__footer {
+  display: none;
+}
+
+.q-dialog__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--q-overlay-background-color);
+}
+
+@media (forced-colors: active) {
+  .q-dialog__panel {
+    border: solid 1px var(--q-color-neutral-0);
+  }
+}
