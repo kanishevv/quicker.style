@@ -1,6 +1,6 @@
 {
   "name": "quicker.style",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "private": false,
   "type": "module",
   "main": "./dist/quicker.style.umd.cjs",

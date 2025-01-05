@@ -1,0 +1,228 @@
+:host {
+    --indicator-color: var(--q-color-primary-600);
+    --track-color: var(--q-color-neutral-200);
+    --track-width: 2px;
+
+    display: block;
+}
+
+.q-tab-group {
+    display: flex;
+    border-radius: 0;
+}
+
+.q-tab-group__tabs {
+    display: flex;
+    position: relative;
+}
+
+.q-tab-group__indicator {
+    position: absolute;
+    transition:
+        var(--q-transition-fast) translate ease,
+        var(--q-transition-fast) width ease;
+}
+
+.q-tab-group--has-scroll-controls .q-tab-group__nav-container {
+    position: relative;
+    padding: 0 var(--q-spacing-x-large);
+}
+
+.q-tab-group__body {
+    display: block;
+    overflow: auto;
+}
+
+.q-tab-group__scroll-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--q-spacing-x-large);
+}
+
+.q-tab-group__scroll-button--start {
+    left: 0;
+}
+
+.q-tab-group__scroll-button--end {
+    right: 0;
+}
+
+.q-tab-group--rtl .q-tab-group__scroll-button--start {
+    left: auto;
+    right: 0;
+}
+
+.q-tab-group--rtl .q-tab-group__scroll-button--end {
+    left: 0;
+    right: auto;
+}
+
+/*
+   * Top
+   */
+
+.q-tab-group--top {
+    flex-direction: column;
+}
+
+.q-tab-group--top .q-tab-group__nav-container {
+    order: 1;
+}
+
+.q-tab-group--top .q-tab-group__nav {
+    display: flex;
+    overflow-x: auto;
+
+    /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar in Chrome/Safari */
+.q-tab-group--top .q-tab-group__nav::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.q-tab-group--top .q-tab-group__tabs {
+    flex: 1 1 auto;
+    position: relative;
+    flex-direction: row;
+    border-bottom: solid var(--track-width) var(--track-color);
+}
+
+.q-tab-group--top .q-tab-group__indicator {
+    bottom: calc(-1 * var(--track-width));
+    border-bottom: solid var(--track-width) var(--indicator-color);
+}
+
+.q-tab-group--top .q-tab-group__body {
+    order: 2;
+}
+
+.q-tab-group--top ::slotted(sl-tab-panel) {
+    --padding: var(--q-spacing-medium) 0;
+}
+
+/*
+   * Bottom
+   */
+
+.q-tab-group--bottom {
+    flex-direction: column;
+}
+
+.q-tab-group--bottom .q-tab-group__nav-container {
+    order: 2;
+}
+
+.q-tab-group--bottom .q-tab-group__nav {
+    display: flex;
+    overflow-x: auto;
+
+    /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar in Chrome/Safari */
+.q-tab-group--bottom .q-tab-group__nav::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.q-tab-group--bottom .q-tab-group__tabs {
+    flex: 1 1 auto;
+    position: relative;
+    flex-direction: row;
+    border-top: solid var(--track-width) var(--track-color);
+}
+
+.q-tab-group--bottom .q-tab-group__indicator {
+    top: calc(-1 * var(--track-width));
+    border-top: solid var(--track-width) var(--indicator-color);
+}
+
+.q-tab-group--bottom .q-tab-group__body {
+    order: 1;
+}
+
+.q-tab-group--bottom ::slotted(sl-tab-panel) {
+    --padding: var(--q-spacing-medium) 0;
+}
+
+/*
+   * Start
+   */
+
+.q-tab-group--start {
+    flex-direction: row;
+}
+
+.q-tab-group--start .q-tab-group__nav-container {
+    order: 1;
+}
+
+.q-tab-group--start .q-tab-group__tabs {
+    flex: 0 0 auto;
+    flex-direction: column;
+    border-inline-end: solid var(--track-width) var(--track-color);
+}
+
+.q-tab-group--start .q-tab-group__indicator {
+    right: calc(-1 * var(--track-width));
+    border-right: solid var(--track-width) var(--indicator-color);
+}
+
+.q-tab-group--start.q-tab-group--rtl .q-tab-group__indicator {
+    right: auto;
+    left: calc(-1 * var(--track-width));
+}
+
+.q-tab-group--start .q-tab-group__body {
+    flex: 1 1 auto;
+    order: 2;
+}
+
+.q-tab-group--start ::slotted(sl-tab-panel) {
+    --padding: 0 var(--q-spacing-medium);
+}
+
+/*
+   * End
+   */
+
+.q-tab-group--end {
+    flex-direction: row;
+}
+
+.q-tab-group--end .q-tab-group__nav-container {
+    order: 2;
+}
+
+.q-tab-group--end .q-tab-group__tabs {
+    flex: 0 0 auto;
+    flex-direction: column;
+    border-left: solid var(--track-width) var(--track-color);
+}
+
+.q-tab-group--end .q-tab-group__indicator {
+    left: calc(-1 * var(--track-width));
+    border-inline-start: solid var(--track-width) var(--indicator-color);
+}
+
+.q-tab-group--end.q-tab-group--rtl .q-tab-group__indicator {
+    right: calc(-1 * var(--track-width));
+    left: auto;
+}
+
+.q-tab-group--end .q-tab-group__body {
+    flex: 1 1 auto;
+    order: 1;
+}
+
+.q-tab-group--end ::slotted(sl-tab-panel) {
+    --padding: 0 var(--q-spacing-medium);
+}

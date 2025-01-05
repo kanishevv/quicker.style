@@ -16,6 +16,7 @@ import QPopup from './components/Popup/QPopup'
 import QSpinner from './components/Spinner/QSpinner'
 import { QToastStack, QToast, useToast } from './components/Toast/QToast'
 import QAlert from './components/Alert/QAlert'
+import { QTabGroup, QTabPanel, QTab } from './components/Tabs/QTabs'
 
 export {
   QInput,
@@ -40,5 +41,8 @@ export {
   QToastStack,
   QToast,
   useToast,
-  QAlert
+  QAlert,
+  QTabGroup,
+  QTabPanel,
+  QTab
 }
