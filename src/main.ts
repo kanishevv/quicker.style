@@ -15,6 +15,7 @@ import QDivider from './components/Divider/QDivider'
 import QPopup from './components/Popup/QPopup'
 import QSpinner from './components/Spinner/QSpinner'
 import { QToastStack, QToast, useToast } from './components/Toast/QToast'
+import QAlert from './components/Alert/QAlert'
 
 export {
   QInput,
@@ -38,5 +39,6 @@ export {
   QSpinner,
   QToastStack,
   QToast,
-  useToast
+  useToast,
+  QAlert
 }
