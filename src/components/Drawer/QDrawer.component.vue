@@ -8,13 +8,15 @@ export type QDrawerProps = {
   label?: string
   placement: 'top' | 'end' | 'bottom' | 'start'
   contained: boolean
+  overlay: boolean
 }
 
 const props = withDefaults(defineProps<Partial<QDrawerProps>>(), {
   open: false,
   label: '',
   placement: 'end',
-  contained: false
+  contained: false,
+  overlay: true
 })
 
 const classes = computed(() => {
@@ -52,7 +54,7 @@ const drawerTransitionName = computed(() => {
 
 <template>
   <div class="q-drawer" :class="classes">
-    <Transition name="q-drawer-fade">
+    <Transition name="q-drawer-fade" v-if="overlay">
       <div class="q-drawer__overlay" tabindex="-1" v-if="open"></div>
     </Transition>
     <Transition :duration="55000" :name="drawerTransitionName">
