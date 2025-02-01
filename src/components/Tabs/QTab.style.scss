@@ -1,63 +1,63 @@
 .q-tab {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--q-font-sans);
-    font-size: var(--q-font-size-medium);
-    font-weight: var(--q-font-weight-semibold);
-    border-radius: var(--q-border-radius-medium);
-    color: var(--q-color-neutral-600);
-    padding: var(--q-spacing-medium) var(--q-spacing-large);
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: pointer;
-    transition:
-        var(--transition-speed) box-shadow,
-        var(--transition-speed) color;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--q-font-sans);
+  font-size: var(--q-font-size-medium);
+  font-weight: var(--q-font-weight-semibold);
+  border-radius: var(--q-border-radius-medium);
+  color: var(--q-color-neutral-600);
+  padding: var(--q-spacing-medium) var(--q-spacing-large);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  transition:
+    var(--transition-speed) box-shadow,
+    var(--transition-speed) color;
 }
 
 .q-tab:hover:not(.q-tab--disabled) {
-    color: var(--q-color-primary-600);
+  color: var(--q-color-primary-600);
 }
 
 :host(:focus) {
-    outline: transparent;
+  outline: transparent;
 }
 
 :host(:focus-visible):not([disabled]) {
-    color: var(--q-color-primary-600);
+  color: var(--q-color-primary-600);
 }
 
 :host(:focus-visible) {
-    outline: var(--q-focus-ring);
-    outline-offset: calc(-1 * var(--q-focus-ring-width) - var(--q-focus-ring-offset));
+  outline: var(--q-focus-ring);
+  outline-offset: calc(-1 * var(--q-focus-ring-width) - var(--q-focus-ring-offset));
 }
 
 .q-tab.q-tab--active:not(.q-tab--disabled) {
-    color: var(--q-color-primary-600);
+  color: var(--q-color-primary-600);
 }
 
 .q-tab.q-tab--closable {
-    padding-inline-end: var(--q-spacing-small);
+  padding-inline-end: var(--q-spacing-small);
 }
 
 .q-tab.q-tab--disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .q-tab__close-button {
-    font-size: var(--q-font-size-small);
-    margin-inline-start: var(--q-spacing-small);
+  font-size: var(--q-font-size-small);
+  margin-inline-start: var(--q-spacing-small);
 }
 
 .q-tab__close-button::part(base) {
-    padding: var(--q-spacing-3x-small);
+  padding: var(--q-spacing-3x-small);
 }
 
 @media (forced-colors: active) {
-    .q-tab.q-tab--active:not(.q-tab--disabled) {
-        outline: solid 1px transparent;
-        outline-offset: -3px;
-    }
+  .q-tab.q-tab--active:not(.q-tab--disabled) {
+    outline: solid 1px transparent;
+    outline-offset: -3px;
+  }
 }

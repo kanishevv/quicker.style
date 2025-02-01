@@ -1,5 +1,5 @@
 <template>
-    <div class="q-tab-panel">
-        <slot />
-    </div>
+  <div class="q-tab-panel">
+    <slot />
+  </div>
 </template>

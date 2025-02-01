@@ -1,3 +1,3 @@
-import QIconButton from './QIconButton.component.vue';
+import QIconButton from './QIconButton.component.vue'
 
-export { QIconButton };
+export { QIconButton }
