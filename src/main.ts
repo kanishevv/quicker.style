@@ -18,6 +18,7 @@ import { QToastStack, QToast, useToast } from './components/Toast/QToast'
 import QAlert from './components/Alert/QAlert'
 import { QTabGroup, QTabPanel, QTab } from './components/Tabs/QTabs'
 import { QIconButton } from './components/IconButton/QIconButton'
+import { QCheckbox } from './components/Checkbox/QCheckbox'
 
 export {
   QInput,
@@ -46,5 +47,6 @@ export {
   QTabGroup,
   QTabPanel,
   QTab,
-  QIconButton
+  QIconButton,
+  QCheckbox
 }
