@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 export interface QFormFieldProps {
   variant: 'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger';
   label: string;
