@@ -1,0 +1,26 @@
+.q-form-field {
+  &__help-text {
+    display: block;
+    color: var(--q-input-help-text-color);
+    margin-top: var(--q-spacing-3x-small);
+    font-size: var(--q-input-help-text-font-size-small);
+  }
+
+  &--danger &__help-text {
+    color: var(--q-color-danger-700);
+  }
+}
+
+.q-form-field--has-label.q-form-field--small .q-form-field__label {
+  display: inline-block;
+  color: var(--q-input-label-color);
+  margin-bottom: var(--q-spacing-2x-small);
+  font-size: var(--q-input-label-font-size-small);
+}
+
+.q-form-field--has-label.q-form-field--medium .q-form-field__label {
+  display: inline-block;
+  color: var(--q-input-label-color);
+  margin-bottom: var(--q-spacing-x-small);
+  font-size: var(--q-input-label-font-size-medium);
+}

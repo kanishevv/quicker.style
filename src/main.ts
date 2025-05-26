@@ -19,6 +19,7 @@ import QAlert from './components/Alert/QAlert'
 import { QTabGroup, QTabPanel, QTab } from './components/Tabs/QTabs'
 import { QIconButton } from './components/IconButton/QIconButton'
 import { QCheckbox } from './components/Checkbox/QCheckbox'
+import { QForm, QFormField } from './components/Form/QForm'
 
 export {
   QInput,
@@ -48,5 +49,7 @@ export {
   QTabPanel,
   QTab,
   QIconButton,
-  QCheckbox
+  QCheckbox,
+  QForm,
+  QFormField
 }
