@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
-// import { libInjectCss } from 'vite-plugin-lib-inject-css'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
@@ -14,7 +14,7 @@ export default defineConfig({
       outDir: 'dist',
       insertTypesEntry: true
     }),
-    // libInjectCss()
+    libInjectCss()
   ],
   resolve: {
     alias: {
