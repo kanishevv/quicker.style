@@ -1,6 +1,6 @@
 {
   "name": "quicker.style",
-  "version": "0.0.38",
+  "version": "0.0.42",
   "private": false,
   "type": "module",
   "main": "./dist/quicker.style.umd.cjs",
@@ -10,9 +10,9 @@
     ".": {
       "import": "./dist/quicker.style.es.js",
       "require": "./dist/quicker.style.umd.cjs",
-      "types": "./dist/main.d.ts",
-      "style": "./dist/style.css"
-    }
+      "types": "./dist/main.d.ts"
+    },
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
