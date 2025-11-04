@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { computed, ref } from 'vue'
 
 const model = defineModel()
 
@@ -39,9 +39,7 @@ const props = withDefaults(defineProps<Partial<QInputProps>>(), {
   spellcheck: true
 })
 
-const state = reactive({
-  focus: false
-})
+const isFocused = ref(false)
 
 const classes = computed(() => {
   const { size, filled, pill, disabled } = props
@@ -55,18 +53,18 @@ const classes = computed(() => {
       'q-input--standard': !filled,
       'q-input--filled': filled,
       'q-input--pill': pill,
-      'q-input--focused': state.focus,
+      'q-input--focused': isFocused.value,
       'q-input--empty': !model.value
     }
   ]
 })
 
 const handleFocus = () => {
-  state.focus = true
+  isFocused.value = true
 }
 
 const handleBlur = () => {
-  state.focus = false
+  isFocused.value = false
 }
 </script>
 
@@ -76,31 +74,11 @@ const handleBlur = () => {
       <slot name="prefix" />
     </div>
 
-    <input
-      class="q-input__control"
-      v-model="model"
-      :name="name"
-      :type="type"
-      :title="title"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :readonly="readonly"
-      :required="required"
-      :minlength="minlength"
-      :maxlength="maxlength"
-      :min="min"
-      :max="max"
-      :autocapitalize="autocapitalize"
-      :autocomplete="autocomplete"
-      :autocorrect="autocorrect"
-      :autofocus="autofocus"
-      :spellcheck="spellcheck"
-      :pattern="pattern"
-      :enterkeyhint="enterkeyhint"
-      :inputmode="inputmode"
-      @focus="() => handleFocus()"
-      @blur="() => handleBlur()"
-    />
+    <input class="q-input__control" v-model="model" :name="name" :type="type" :title="title" :placeholder="placeholder"
+      :disabled="disabled" :readonly="readonly" :required="required" :minlength="minlength" :maxlength="maxlength"
+      :min="min" :max="max" :autocapitalize="autocapitalize" :autocomplete="autocomplete" :autocorrect="autocorrect"
+      :autofocus="autofocus" :spellcheck="spellcheck" :pattern="pattern" :enterkeyhint="enterkeyhint"
+      :inputmode="inputmode" @focus="() => handleFocus()" @blur="() => handleBlur()" />
 
     <div class="q-input__suffix" v-if="slots.suffix">
       <slot name="suffix" />

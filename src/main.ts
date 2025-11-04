@@ -14,7 +14,9 @@ import QDialog from './components/Dialog/QDialog'
 import QDivider from './components/Divider/QDivider'
 import QPopup from './components/Popup/QPopup'
 import QSpinner from './components/Spinner/QSpinner'
-import { QToastStack, QToast, useToast } from './components/Toast/QToast'
+import QToastStack from './components/Toast/QToastStack.component.vue'
+import QToast from './components/Toast/QToast.component.vue'
+import { useToast } from './components/Toast/QToast.service'
 import QAlert from './components/Alert/QAlert'
 import { QTabGroup, QTabPanel, QTab } from './components/Tabs/QTabs'
 import { QIconButton } from './components/IconButton/QIconButton'
@@ -53,3 +55,6 @@ export {
   QForm,
   QFormField
 }
+
+// Export all types
+export * from './types'

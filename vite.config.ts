@@ -3,19 +3,21 @@ import { resolve } from 'path'
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
-// import { libInjectCss } from 'vite-plugin-lib-inject-css'
-import dts from 'vite-plugin-dts'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
+// Temporarily disabled due to lines-and-columns compatibility issue
+// Types are generated via 'types' script using tsc --emitDeclarationOnly
+// import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    dts({
-      outDir: 'dist',
-      insertTypesEntry: true
-    }),
-    // libInjectCss()
-  ],
+  plugins: [vue(), libInjectCss()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -23,6 +25,7 @@ export default defineConfig({
   },
   build: {
     copyPublicDir: false,
+    cssCodeSplit: false,
     lib: {
       entry: resolve(__dirname, 'src/main.ts'),
       name: 'Quicker.style',
@@ -34,7 +37,8 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue'
-        }
+        },
+        assetFileNames: 'style.css'
       }
     }
   }

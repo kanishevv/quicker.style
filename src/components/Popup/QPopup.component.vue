@@ -14,21 +14,23 @@ import { offsetParent } from 'composed-offset-position'
 
 const instance = getCurrentInstance()
 
+type Placement =
+  | 'top'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom'
+  | 'bottom-start'
+  | 'bottom-end'
+  | 'right'
+  | 'right-start'
+  | 'right-end'
+  | 'left'
+  | 'left-start'
+  | 'left-end'
+
 export interface QPopupProps {
   active: boolean
-  placement:
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end'
+  placement: Placement
   strategy: 'absolute' | 'fixed'
   distance: number
   skidding: number
@@ -36,7 +38,7 @@ export interface QPopupProps {
   arrowPlacement: 'start' | 'end' | 'center' | 'anchor'
   arrowPadding: number
   flip: boolean
-  flipFallbackPlacements: string
+  flipFallbackPlacements: Placement[] | string
   flipFallbackStrategy: 'best-fit' | 'initial'
   flipBoundary?: Element | Element[]
   flipPadding: number
@@ -60,7 +62,7 @@ const props = withDefaults(defineProps<Partial<QPopupProps>>(), {
   arrowPlacement: 'anchor',
   arrowPadding: 10,
   flip: false,
-  flipFallbackPlacements: '',
+  flipFallbackPlacements: undefined,
   flipFallbackStrategy: 'best-fit',
   flipPadding: 0,
   shift: false,
@@ -85,10 +87,29 @@ const classes = computed(() => {
   ]
 })
 
-const start = () => {
-  if (anchor.value && popup.value) {
-    autoUpdate(anchor.value, popup.value, () => reposition())
+// Преобразование строки в массив placements
+const parseFallbackPlacements = (
+  fallbackPlacements: Placement[] | string | undefined
+): Placement[] | undefined => {
+  if (Array.isArray(fallbackPlacements)) {
+    return fallbackPlacements.length > 0 ? fallbackPlacements : undefined
   }
+  if (typeof fallbackPlacements === 'string' && fallbackPlacements.trim()) {
+    return fallbackPlacements.split(',').map((p) => p.trim() as Placement)
+  }
+  return undefined
+}
+
+const start = () => {
+  if (!anchor.value) {
+    console.warn('QPopup: anchor element not found. Make sure to provide an anchor slot.')
+    return
+  }
+  if (!popup.value) {
+    console.warn('QPopup: popup element not found.')
+    return
+  }
+  autoUpdate(anchor.value, popup.value, () => reposition())
 }
 
 const reposition = () => {
@@ -121,11 +142,11 @@ const reposition = () => {
 
     // Then we flip
     if (props.flip) {
+      const fallbackPlacements = parseFallbackPlacements(props.flipFallbackPlacements)
       middleware.push(
         flip({
           boundary: props.flipBoundary,
-          // @ts-expect-error - We're converting a string attribute to an array here
-          fallbackPlacements: props.flipFallbackPlacements,
+          fallbackPlacements,
           fallbackStrategy:
             props.flipFallbackStrategy === 'best-fit' ? 'bestFit' : 'initialPlacement',
           padding: props.flipPadding
@@ -269,8 +290,10 @@ const reposition = () => {
 
 onMounted(() => {
   if (instance) {
-    anchor.value = instance.subTree.el?.nextElementSibling
-    start()
+    anchor.value = instance.subTree.el?.nextElementSibling as HTMLElement | null
+    if (props.active) {
+      start()
+    }
   }
 })
 </script>
