@@ -1,3 +1,3 @@
-import QCheckbox from './QCheckbox.component.vue';
+import QCheckbox from './QCheckbox.component.vue'
 
-export { QCheckbox };
+export { QCheckbox }

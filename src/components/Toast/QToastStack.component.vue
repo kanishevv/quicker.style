@@ -31,10 +31,18 @@ const classes = computed(() => {
 
 <template>
   <div class="q-toast-stack" :class="classes" v-if="toasts.length">
-    <q-toast class="q-toast-stack__toast" v-for="toast in toasts" :key="toast.id" :class="toast.type">
+    <q-toast
+      class="q-toast-stack__toast"
+      v-for="toast in toasts"
+      :key="toast.id"
+      :class="toast.type"
+    >
       <component v-if="toast.component" :is="toast.component" v-bind="toast.props">
-        <template v-for="(slotFn, slotName) in toast.slots" :key="`${toast.id}-${slotName}`"
-          v-slot:[slotName]="slotProps">
+        <template
+          v-for="(slotFn, slotName) in toast.slots"
+          :key="`${toast.id}-${slotName}`"
+          v-slot:[slotName]="slotProps"
+        >
           <component :is="slotFn" v-bind="slotProps" />
         </template>
       </component>

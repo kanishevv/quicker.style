@@ -5,6 +5,7 @@ export type { QAvatarProps } from './components/Avatar/QAvatar.component.vue'
 export type { QBadgeProps } from './components/Badge/QBadge.component.vue'
 export type { QButtonProps } from './components/Button/QButton.component.vue'
 export type { QDetailsProps } from './components/Details/QDetails.component.vue'
+export type { QDialogProps } from './components/Dialog/QDialog.component.vue'
 export type { QDividerProps } from './components/Divider/QDivider.component.vue'
 export type { QDrawerProps } from './components/Drawer/QDrawer.component.vue'
 export type { QFlexProps } from './components/Flex/QFlex.component.vue'
@@ -33,4 +34,3 @@ export type Placement =
   | 'left'
   | 'left-start'
   | 'left-end'
-

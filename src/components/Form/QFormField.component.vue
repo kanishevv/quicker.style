@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 export interface QFormFieldProps {
-  variant: 'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger';
-  label: string;
-  helpText: string;
+  variant: 'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger'
+  label: string
+  helpText: string
   size: 'small' | 'medium' | 'large'
 }
 
 const props = withDefaults(defineProps<Partial<QFormFieldProps>>(), {
   variant: 'default',
   size: 'medium'
-});
+})
 
 const classes = computed(() => {
-  const { variant, label, size } = props;
+  const { variant, label, size } = props
 
   return [
     {
@@ -27,11 +27,10 @@ const classes = computed(() => {
       'q-form-field--has-label': label,
       'q-form-field--small': size === 'small',
       'q-form-field--medium': size === 'medium',
-      'q-form-field--large': size === 'large',
-
-    },
-  ];
-});
+      'q-form-field--large': size === 'large'
+    }
+  ]
+})
 </script>
 
 <template>

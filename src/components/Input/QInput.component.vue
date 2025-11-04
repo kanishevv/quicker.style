@@ -74,11 +74,31 @@ const handleBlur = () => {
       <slot name="prefix" />
     </div>
 
-    <input class="q-input__control" v-model="model" :name="name" :type="type" :title="title" :placeholder="placeholder"
-      :disabled="disabled" :readonly="readonly" :required="required" :minlength="minlength" :maxlength="maxlength"
-      :min="min" :max="max" :autocapitalize="autocapitalize" :autocomplete="autocomplete" :autocorrect="autocorrect"
-      :autofocus="autofocus" :spellcheck="spellcheck" :pattern="pattern" :enterkeyhint="enterkeyhint"
-      :inputmode="inputmode" @focus="() => handleFocus()" @blur="() => handleBlur()" />
+    <input
+      class="q-input__control"
+      v-model="model"
+      :name="name"
+      :type="type"
+      :title="title"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :required="required"
+      :minlength="minlength"
+      :maxlength="maxlength"
+      :min="min"
+      :max="max"
+      :autocapitalize="autocapitalize"
+      :autocomplete="autocomplete"
+      :autocorrect="autocorrect"
+      :autofocus="autofocus"
+      :spellcheck="spellcheck"
+      :pattern="pattern"
+      :enterkeyhint="enterkeyhint"
+      :inputmode="inputmode"
+      @focus="() => handleFocus()"
+      @blur="() => handleBlur()"
+    />
 
     <div class="q-input__suffix" v-if="slots.suffix">
       <slot name="suffix" />
