@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 export interface QButtonProps {
   outline: boolean
@@ -11,6 +12,7 @@ export interface QButtonProps {
   caret: boolean
   href: string
   target: 'blank' | 'self' | 'parent' | 'top'
+  to: string
 }
 
 const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
@@ -21,7 +23,15 @@ const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
 
 const slots = defineSlots()
 
-const component = computed(() => (props.href ? 'a' : 'button'))
+const component = computed(() =>  {
+  if (props.to) {
+    return RouterLink
+  } else if (props.href) {
+    return 'a'
+  } else {
+    return 'button'
+  }
+})
 
 const targ = computed(() => (props.href !== null && props.target ? `_${props.target}` : null))
 
@@ -55,7 +65,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <component class="q-button" :is="component" :class="classes" :href="href" :target="targ">
+  <component class="q-button" :to="to" :is="component" :class="classes" :href="href" :target="targ" :disabled="props.disabled">
     <span class="q-button__prefix" v-if="slots.prefix">
       <slot name="prefix"></slot>
     </span>
