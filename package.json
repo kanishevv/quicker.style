@@ -69,6 +69,7 @@
     "@floating-ui/dom": "^1.6.12",
     "@heroicons/vue": "^2.2.0",
     "@vueuse/core": "^10.7.2",
-    "composed-offset-position": "^0.0.6"
+    "composed-offset-position": "^0.0.6",
+    "vue-router": "^4.6.3"
   }
 }
