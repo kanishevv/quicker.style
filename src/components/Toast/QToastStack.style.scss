@@ -27,6 +27,10 @@
   }
 }
 
+.q-toast-stack--placement-click {
+  position: fixed;
+}
+
 .q-toast-stack--placement-top {
   position: fixed;
   top: 0;
