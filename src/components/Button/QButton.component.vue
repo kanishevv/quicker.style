@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+// Try to import RouterLink (works in both Vue Router and Nuxt)
+// Nuxt uses vue-router under the hood, so RouterLink works in Nuxt too
 let RouterLink: any = null
 try {
   // @ts-ignore - dynamic import for optional dependency
@@ -31,31 +33,46 @@ const props = withDefaults(defineProps<Partial<QButtonProps>>(), {
 const slots = defineSlots()
 
 const component = computed(() => {
-  if (props.to && RouterLink) {
-    return RouterLink
+  if (props.to) {
+    // Use RouterLink if available (works in both Vue Router and Nuxt)
+    // Nuxt uses vue-router, so RouterLink works there too
+    if (RouterLink) {
+      return RouterLink
+    }
+    // If router is not available, use regular link
+    return 'a'
   }
-  if (props.href || props.to) {
+  if (props.href) {
     return 'a'
   }
   return 'button'
 })
 
 const linkProps = computed(() => {
-  if (props.to && RouterLink) {
-    return { to: props.to }
+  if (props.to) {
+    // Use 'to' prop for RouterLink
+    if (RouterLink) {
+      return { to: props.to }
+    }
+    // If router is not available, use 'to' as 'href' for regular link
+    return { href: typeof props.to === 'string' ? props.to : '#' }
   }
   if (props.href) {
     return { href: props.href }
-  }
-  if (props.to) {
-    return { href: typeof props.to === 'string' ? props.to : '#' }
   }
   return {}
 })
 
 const targ = computed(() => {
-  const hasLink = props.href || (props.to && !RouterLink)
-  return hasLink && props.target ? `_${props.target}` : null
+  if (props.to) {
+    // target is only for regular links, not router links
+    if (RouterLink) {
+      return null
+    }
+    // If we fallback to regular 'a' tag, use target if provided
+    return props.target ? `_${props.target}` : null
+  }
+  return props.href && props.target ? `_${props.target}` : null
 })
 
 const classes = computed(() => {
